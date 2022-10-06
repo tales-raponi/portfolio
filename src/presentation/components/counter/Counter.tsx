@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, HStack, Icon } from "native-base";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { Pressable } from "react-native";
+
 const Counter: React.FC<PropTypes> = ({}) => {
   const [count, setIsCount] = useState(0);
 
