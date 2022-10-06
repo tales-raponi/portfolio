@@ -1,6 +1,15 @@
 import React, { useState } from "react";
-import { Text, View, Heading, HStack, Button } from "native-base";
-import { Counter } from "../../components";
+import {
+  Text,
+  View,
+  Heading,
+  HStack,
+  Button,
+  FormControl,
+  Input,
+  ScrollView,
+} from "native-base";
+import { Counter, AlertDialog } from "../../components";
 
 export const ComponentScreen = (props) => {
   const [showComponents, setShowComponents] = useState(true);
@@ -16,22 +25,70 @@ export const ComponentScreen = (props) => {
         marginTop={"20px"}
         padding={"5px"}
       >
-        <Heading alignSelf={"center"} bold italic>
-          Components
-        </Heading>
-        <Text fontSize={"18px"} color={"#E8DDB5"}>
-          Counter
-        </Text>
-        <Text
-          textAlign={"justify"}
-          width={"90%"}
-          marginTop={"10px"}
-          marginBottom={"10px"}
-        >
-          This is a counter component, which has a value incremented or
-          decremented by clicking on the icons:
-        </Text>
-        <Counter />
+        <ScrollView>
+          <Heading alignSelf={"center"} bold italic>
+            Components
+          </Heading>
+          <Text fontSize={"18px"} color={"#E8DDB5"}>
+            Counter
+          </Text>
+          <Text
+            textAlign={"justify"}
+            width={"90%"}
+            marginTop={"10px"}
+            marginBottom={"10px"}
+          >
+            This is a counter component, which has a value incremented or
+            decremented by clicking on the icons:
+          </Text>
+          <Counter />
+          <Text fontSize={"18px"} color={"#E8DDB5"}>
+            Login Form
+          </Text>
+          <Text
+            textAlign={"justify"}
+            width={"90%"}
+            marginTop={"10px"}
+            marginBottom={"10px"}
+          >
+            This is a Login Form, which has two inputs, one for the username and
+            one for the password:
+          </Text>
+          <FormControl padding={2} isRequired>
+            <FormControl.Label>
+              <Text color={"black"}>Username</Text>
+            </FormControl.Label>
+            <Input
+              placeholder="Enter email"
+              textContentType="emailAddress"
+              backgroundColor={"white"}
+              borderColor={"black"}
+            />
+            <FormControl.Label>
+              <Text color={"black"}>Password</Text>
+            </FormControl.Label>
+            <Input
+              placeholder="Enter password"
+              type={"password"}
+              textContentType="password"
+              backgroundColor={"white"}
+              borderColor={"black"}
+            />
+          </FormControl>
+          <Text fontSize={"18px"} color={"#E8DDB5"}>
+            AlertDialog
+          </Text>
+          <Text
+            textAlign={"justify"}
+            width={"90%"}
+            marginTop={"10px"}
+            marginBottom={"10px"}
+          >
+            This is a Alert Dialog component, is used when a user needs to be
+            interrupted with a mandatory confirmation or call-to-action:
+          </Text>
+          <AlertDialog />
+        </ScrollView>
       </View>
       <HStack space={5} justifyContent={"center"} padding={"10px"}>
         <Button
