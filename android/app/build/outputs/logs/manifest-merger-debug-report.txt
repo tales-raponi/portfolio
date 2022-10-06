@@ -11,6 +11,7 @@ MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.125.0] C:\Users\rapon\
 MERGED from [:react-native-safe-area-context] C:\Users\rapon\Desktop\projects\portfolio\project\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\rapon\Desktop\projects\portfolio\project\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-svg] C:\Users\rapon\Desktop\projects\portfolio\project\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-vector-icons] C:\Users\rapon\Desktop\projects\portfolio\project\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:react-native:0.70.2] C:\Users\rapon\.gradle\caches\transforms-3\790d0e301814aa39d1ebcac266155cf1\transformed\jetified-react-native-0.70.2-debug\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\rapon\.gradle\caches\transforms-3\4aa3daa4c119e5ebf154ad11d072f485\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.react:hermes-engine:0.70.2] C:\Users\rapon\.gradle\caches\transforms-3\2b865d476676e9439292fd1bc9932a11\transformed\jetified-hermes-engine-0.70.2-debug\AndroidManifest.xml:2:1-9:12
@@ -181,6 +182,8 @@ MERGED from [:react-native-screens] C:\Users\rapon\Desktop\projects\portfolio\pr
 MERGED from [:react-native-screens] C:\Users\rapon\Desktop\projects\portfolio\project\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-svg] C:\Users\rapon\Desktop\projects\portfolio\project\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-svg] C:\Users\rapon\Desktop\projects\portfolio\project\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-vector-icons] C:\Users\rapon\Desktop\projects\portfolio\project\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-vector-icons] C:\Users\rapon\Desktop\projects\portfolio\project\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.70.2] C:\Users\rapon\.gradle\caches\transforms-3\790d0e301814aa39d1ebcac266155cf1\transformed\jetified-react-native-0.70.2-debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.70.2] C:\Users\rapon\.gradle\caches\transforms-3\790d0e301814aa39d1ebcac266155cf1\transformed\jetified-react-native-0.70.2-debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\rapon\.gradle\caches\transforms-3\4aa3daa4c119e5ebf154ad11d072f485\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44

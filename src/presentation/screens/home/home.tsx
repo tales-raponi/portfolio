@@ -8,6 +8,7 @@ import {
   Text,
   PresenceTransition,
   Heading,
+  ScrollView,
 } from "native-base";
 import { Section } from "../../components";
 
@@ -21,15 +22,16 @@ export const HomeScreen = (props: HomeProps) => {
   const [showPerfil, setShowPerfil] = useState(false);
 
   return (
-    <View
-      backgroundColor={"white"}
-      width={"100%"}
-      height={"100%"}
-      alignContent={"center"}
-      flex={1}
-    >
+    <View backgroundColor={"#333333"} flex={1}>
       {showPerfil ? (
-        <View backgroundColor={"blueGray.200"} width={"95%"} height={"95%"}>
+        <View
+          backgroundColor={"#95B8D1"}
+          width={"90%"}
+          height={"500px"}
+          alignSelf={"center"}
+          borderRadius={"10px"}
+          marginTop={"10px"}
+        >
           <PresenceTransition
             visible={showPerfil}
             initial={{
@@ -38,7 +40,7 @@ export const HomeScreen = (props: HomeProps) => {
             animate={{
               opacity: 1,
               transition: {
-                duration: 750,
+                duration: 3000,
               },
             }}
           >
@@ -48,13 +50,7 @@ export const HomeScreen = (props: HomeProps) => {
                 justifyContent: "center",
               }}
             >
-              <HStack justifyContent={"center"}>
-                <Avatar
-                  size={"2xl"}
-                  source={Perfil}
-                  marginTop={"10px"}
-                ></Avatar>
-              </HStack>
+              <Avatar size={"2xl"} source={Perfil} marginTop={"10px"}></Avatar>
               <Heading fontSize={"20px"}>Tales Raponi</Heading>
               <Text
                 textAlign={"center"}
@@ -64,47 +60,61 @@ export const HomeScreen = (props: HomeProps) => {
               >
                 Front-End Developer
               </Text>
-              <Text>(ReactJS | React Native | Typescript | Native Base)</Text>
-              <Text width={"90%"} marginTop={"10px"}>
-                My name is Tales Raponi Silva, I'm graduating in Control and
-                Automation Engineering from the Federal University of Itajubá -
-                UNIFEI. Passionate about programming in high-level languages
-                ​​and, through them, develop using my creativity.
+              <Text>(ReactJS | React Native | Native Base)</Text>
+              <Text width={"90%"} marginTop={"10px"} textAlign={"justify"}>
+                My name is{" "}
+                <Text bold italic>
+                  Tales Raponi Silva
+                </Text>
+                , I'm graduating in Control and Automation Engineering from the
+                Federal University of Itajubá - UNIFEI. Passionate about
+                programming in high-level languages ​and, through them, develop
+                using my creativity.{"\n\n"}
+                In this project, I you show a little of my personal experience
+                in programming, between styled components, interactive
+                interfaces and other applications. So, let's start!
               </Text>
-              <Button
-                style={{
-                  borderRadius: 10,
-                  borderWidth: 1,
-                  backgroundColor: "white",
-                  borderColor: "white",
-                  shadowColor: "black",
-                  shadowOpacity: 0.8,
-                }}
-                shadow={1}
-                onPress={() => setShowPerfil(false)}
-                marginTop={"10px"}
-              >
-                <Text color={"cyan.600"}>Back</Text>
-              </Button>
             </VStack>
           </PresenceTransition>
+          <HStack space={5} justifyContent={"center"}>
+            <Button
+              style={{
+                borderRadius: 10,
+                borderWidth: 1,
+                backgroundColor: "#E8DDB5",
+                borderColor: "white",
+              }}
+              onPress={() => setShowPerfil(false)}
+            >
+              <Text color={"#333333"}>Back</Text>
+            </Button>
+            <Button
+              style={{
+                borderRadius: 10,
+                borderWidth: 1,
+                backgroundColor: "#E8DDB5",
+                borderColor: "white",
+              }}
+              onPress={() => props.navigation.navigate("Components")}
+            >
+              <Text color={"#333333"}>Next</Text>
+            </Button>
+          </HStack>
         </View>
       ) : null}
       {!showPerfil ? (
         <View
           padding={"10px"}
           style={{
-            flex: 1,
             alignItems: "center",
             justifyContent: "center",
           }}
         >
           <Button
             style={{
-              borderRadius: 100,
-              width: "50%",
+              borderRadius: 1000,
               borderWidth: 1,
-              backgroundColor: "white",
+              backgroundColor: "#E8DDB5",
               borderColor: "white",
               shadowColor: "black",
               shadowOpacity: 0.8,
@@ -112,7 +122,7 @@ export const HomeScreen = (props: HomeProps) => {
             onPress={() => setShowPerfil(true)}
             shadow={5}
           >
-            <Text color={"cyan.600"}>Press to start</Text>
+            <Text color={"cyan.500"}>Click me</Text>
           </Button>
         </View>
       ) : null}
