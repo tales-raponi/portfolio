@@ -1,55 +1,37 @@
 import React, { type PropsWithChildren } from "react";
-import { StyleSheet, Text, useColorScheme, View } from "react-native";
-
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import { View, ScrollView, Heading, Text } from "native-base";
 
 const Section: React.FC<
   PropsWithChildren<{
     title: string;
   }>
 > = ({ children, title }) => {
-  const isDarkMode = useColorScheme() === "dark";
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}
-      >
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}
-      >
-        {children}
-      </Text>
+    <View
+      backgroundColor={"dark.500"}
+      width={"100%"}
+      height={"100%"}
+      alignContent={"center"}
+      justifyContent={"center"}
+      flex={1}
+    >
+      <ScrollView marginTop={"10px"}>
+        <View
+          backgroundColor={"blueGray.200"}
+          width={"90%"}
+          height={"90%"}
+          alignSelf={"center"}
+          borderRadius={"10px"}
+        >
+          <Heading alignSelf={"center"}>Components</Heading>
+          <Text textAlign={"justify"}>
+            This is a counter component, which has a value incremented or
+            decremented by clicking on the icons.
+          </Text>
+        </View>
+      </ScrollView>
     </View>
   );
 };
 
 export default Section;
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: "600",
-    textAlign: "center",
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: "400",
-  },
-});
