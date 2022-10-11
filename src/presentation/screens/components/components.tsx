@@ -8,11 +8,20 @@ import {
   FormControl,
   Input,
   ScrollView,
+  useToast,
+  Alert,
+  VStack,
 } from "native-base";
 import { Counter, AlertDialog } from "../../components";
 
 export const ComponentScreen = (props) => {
   const [showComponents, setShowComponents] = useState(true);
+  const [submit, setIsSubmit] = useState();
+  const [email, setIsEmail] = useState("");
+  const [password, setIsPassword] = useState("");
+  const toast = useToast();
+
+  console.log("Array: ", password);
 
   return (
     <View backgroundColor={"#333333"} width={"100%"} height={"100%"} flex={1}>
@@ -63,6 +72,7 @@ export const ComponentScreen = (props) => {
               textContentType="emailAddress"
               backgroundColor={"white"}
               borderColor={"black"}
+              onChangeText={(e) => setIsEmail(e)}
             />
             <FormControl.Label>
               <Text color={"black"}>Password</Text>
@@ -71,10 +81,55 @@ export const ComponentScreen = (props) => {
               placeholder="Enter password"
               type={"password"}
               textContentType="password"
+              onChangeText={(e) => setIsPassword(e)}
               backgroundColor={"white"}
               borderColor={"black"}
             />
           </FormControl>
+          <Button
+            width={"100px"}
+            alignSelf="center"
+            onPress={() => {
+              const id = "test";
+              if (!toast.isActive(id)) {
+                toast.show({
+                  id,
+                  render: () => {
+                    return (
+                      <Alert status={"success"} variant={"top-accent"}>
+                        <VStack space={1} flexShrink={1} w="100%">
+                          <HStack
+                            flexShrink={1}
+                            alignItems="center"
+                            justifyContent="space-between"
+                          >
+                            <HStack
+                              space={2}
+                              flexShrink={1}
+                              alignItems="center"
+                            >
+                              <Text
+                                fontSize="md"
+                                fontWeight="medium"
+                                flexShrink={1}
+                              >
+                                E-mail successfully registered!
+                              </Text>
+                            </HStack>
+                          </HStack>
+                          <Text px="6">
+                            Your E-mail address was registered with success!
+                          </Text>
+                        </VStack>
+                      </Alert>
+                    );
+                  },
+                });
+              }
+            }}
+          >
+            Submit
+          </Button>
           <Text fontSize={"18px"} color={"#E8DDB5"}>
             AlertDialog
           </Text>
