@@ -67,3 +67,10 @@ buck-out/
 
 #/__tests__
 /__tests__
+android/.gradle/7.5.1/checksums/checksums.lock
+android/.gradle/file-system.probe
+android/.gradle/7.5.1/executionHistory/executionHistory.bin
+android/.gradle/7.5.1/executionHistory/executionHistory.lock
+android/.gradle/7.5.1/fileHashes/fileHashes.bin
+android/.gradle/7.5.1/fileHashes/fileHashes.lock
+android/.gradle/buildOutputCleanup/buildOutputCleanup.lock
