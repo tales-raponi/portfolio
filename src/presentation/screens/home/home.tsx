@@ -22,7 +22,7 @@ export const HomeScreen = (props: HomeProps) => {
   const [showPerfil, setShowPerfil] = useState(false);
 
   return (
-    <View backgroundColor={"#333333"} flex={1}>
+    <View backgroundColor={"#333333"} flex={1} justifyContent={"center"}>
       {showPerfil ? (
         <View
           backgroundColor={"#95B8D1"}
@@ -30,7 +30,6 @@ export const HomeScreen = (props: HomeProps) => {
           height={"500px"}
           alignSelf={"center"}
           borderRadius={"10px"}
-          marginTop={"10px"}
         >
           <PresenceTransition
             visible={showPerfil}
@@ -106,8 +105,7 @@ export const HomeScreen = (props: HomeProps) => {
         <View
           padding={"10px"}
           style={{
-            alignItems: "center",
-            justifyContent: "center",
+            display: "flex",
           }}
         >
           <Button
@@ -118,6 +116,7 @@ export const HomeScreen = (props: HomeProps) => {
               borderColor: "white",
               shadowColor: "black",
               shadowOpacity: 0.8,
+              alignSelf: "center",
             }}
             onPress={() => setShowPerfil(true)}
             shadow={5}

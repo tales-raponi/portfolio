@@ -16,7 +16,12 @@ import { Counter, AlertDialog } from "../../components";
 
 export const ComponentScreen = (props) => {
   const [showComponents, setShowComponents] = useState(true);
-  const [submit, setIsSubmit] = useState();
+  const list = [
+    {
+      email: "raponi13@gmail.com",
+    },
+  ];
+  const [submit, setIsSubmit] = useState(list);
   const [email, setIsEmail] = useState("");
   const [password, setIsPassword] = useState("");
   const toast = useToast();
@@ -70,6 +75,7 @@ export const ComponentScreen = (props) => {
             <Input
               placeholder="Enter email"
               textContentType="emailAddress"
+              value={email}
               backgroundColor={"white"}
               borderColor={"black"}
               onChangeText={(e) => setIsEmail(e)}
@@ -81,6 +87,7 @@ export const ComponentScreen = (props) => {
               placeholder="Enter password"
               type={"password"}
               textContentType="password"
+              value={password}
               onChangeText={(e) => setIsPassword(e)}
               backgroundColor={"white"}
               borderColor={"black"}
@@ -126,10 +133,34 @@ export const ComponentScreen = (props) => {
                   },
                 });
               }
+              setIsEmail("");
+              setIsPassword("");
+              setIsSubmit((prevList) => {
+                return [
+                  ...prevList,
+                  {
+                    email: email,
+                  },
+                ];
+              });
             }}
           >
             Submit
           </Button>
+          {list.map((item) => {
+            return (
+              <HStack
+                w="100%"
+                justifyContent="space-between"
+                alignItems="center"
+                key={item.email}
+              >
+                <Text width="100%" flexShrink={1} textAlign="left" mx="2">
+                  {item.email}
+                </Text>
+              </HStack>
+            );
+          })}
           <Text fontSize={"18px"} color={"#E8DDB5"}>
             AlertDialog
           </Text>
