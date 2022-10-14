@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -9,24 +9,54 @@ import {
   Input,
   ScrollView,
   useToast,
-  Alert,
-  VStack,
 } from "native-base";
 import { Counter, AlertDialog } from "../../components";
 
 export const ComponentScreen = (props) => {
-  const [showComponents, setShowComponents] = useState(true);
   const list = [
     {
       email: "raponi13@gmail.com",
+    },
+    {
+      email: "exemplo10@gmail.com",
+    },
+    {
+      email: "exemplo11@gmail.com",
+    },
+    {
+      email: "exemplo12@gmail.com",
     },
   ];
   const [submit, setIsSubmit] = useState(list);
   const [email, setIsEmail] = useState("");
   const [password, setIsPassword] = useState("");
+  const [queryEmail, setIsQueryEmail] = useState("");
+  const [consult, setConsult] = useState(false);
   const toast = useToast();
 
-  console.log("Array: ", password);
+  console.log("Array: ", submit);
+
+  const addItem = (title) => {
+    if (title === "") {
+      toast.show({
+        title: "Please Enter Text",
+      });
+      return;
+    } else {
+      toast.show({
+        title: "Email registred with success!",
+      });
+    }
+
+    setIsSubmit((prevList) => {
+      return [
+        ...prevList,
+        {
+          email: email,
+        },
+      ];
+    });
+  };
 
   return (
     <View backgroundColor={"#333333"} width={"100%"} height={"100%"} flex={1}>
@@ -98,69 +128,89 @@ export const ComponentScreen = (props) => {
             alignSelf="center"
             onPress={() => {
               const id = "test";
-              if (!toast.isActive(id)) {
-                toast.show({
-                  id,
-                  render: () => {
-                    return (
-                      <Alert status={"success"} variant={"top-accent"}>
-                        <VStack space={1} flexShrink={1} w="100%">
-                          <HStack
-                            flexShrink={1}
-                            alignItems="center"
-                            justifyContent="space-between"
-                          >
-                            <HStack
-                              space={2}
-                              flexShrink={1}
-                              alignItems="center"
-                            >
-                              <Text
-                                fontSize="md"
-                                fontWeight="medium"
-                                flexShrink={1}
-                              >
-                                E-mail successfully registered!
-                              </Text>
-                            </HStack>
-                          </HStack>
-                          <Text px="6">
-                            Your E-mail address was registered with success!
-                          </Text>
-                        </VStack>
-                      </Alert>
-                    );
-                  },
-                });
-              }
-              setIsEmail("");
+              addItem(email);
               setIsPassword("");
-              setIsSubmit((prevList) => {
-                return [
-                  ...prevList,
-                  {
-                    email: email,
-                  },
-                ];
-              });
+              setIsEmail("");
             }}
           >
             Submit
           </Button>
-          {list.map((item) => {
-            return (
-              <HStack
-                w="100%"
-                justifyContent="space-between"
-                alignItems="center"
-                key={item.email}
+          <Heading size={"md"} textAlign={"center"} padding={"10px"}>
+            Registered E-mails:
+          </Heading>
+          <View
+            padding={"10px"}
+            borderWidth={"1px"}
+            borderRadius={"10px"}
+            backgroundColor={"white"}
+          >
+            {submit.map((item) => {
+              return (
+                <HStack
+                  w="100%"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  key={item.email}
+                >
+                  <Text width="100%" flexShrink={1} textAlign="left" mx="2">
+                    {item.email}
+                  </Text>
+                </HStack>
+              );
+            })}
+          </View>
+          <Heading size={"md"} textAlign={"center"} padding={"10px"}>
+            Consult E-mails:
+          </Heading>
+          {consult == false && (
+            <>
+              <Input
+                width={"70%"}
+                alignSelf={"center"}
+                backgroundColor={"white"}
+                onChangeText={(e) => setIsQueryEmail(e)}
+                value={queryEmail}
+                keyboardType={"email-address"}
+                marginBottom={"10px"}
+              />
+              <Button
+                width={"100px"}
+                alignSelf="center"
+                onPress={() => setConsult(true)}
               >
-                <Text width="100%" flexShrink={1} textAlign="left" mx="2">
-                  {item.email}
-                </Text>
-              </HStack>
-            );
-          })}
+                Consult
+              </Button>
+            </>
+          )}
+          {consult &&
+            submit.map((e) => {
+              if (e.email === queryEmail) {
+                return (
+                  <>
+                    <View
+                      padding={"10px"}
+                      borderWidth={"1px"}
+                      borderRadius={"10px"}
+                      backgroundColor={"white"}
+                      width={"60%"}
+                      alignSelf="center"
+                      key={e.email}
+                      marginBottom={"10px"}
+                    >
+                      <Text>{queryEmail}</Text>
+                    </View>
+                    <Button
+                      width={"100px"}
+                      alignSelf="center"
+                      onPress={() => setConsult(false)}
+                      key={e.email}
+                    >
+                      Back
+                    </Button>
+                  </>
+                );
+              }
+            })}
           <Text fontSize={"18px"} color={"#E8DDB5"}>
             AlertDialog
           </Text>

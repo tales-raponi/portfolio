@@ -8,9 +8,10 @@ import {
   Text,
   PresenceTransition,
   Heading,
-  ScrollView,
+  Image,
+  Pressable,
 } from "native-base";
-import { Section } from "../../components";
+import { Circle } from "../../../assets";
 
 import { Perfil } from "../../../assets";
 
@@ -20,6 +21,7 @@ interface HomeProps {
 
 export const HomeScreen = (props: HomeProps) => {
   const [showPerfil, setShowPerfil] = useState(false);
+  const [opacity, setOpacity] = useState(false);
 
   return (
     <View backgroundColor={"#333333"} flex={1} justifyContent={"center"}>
@@ -108,21 +110,20 @@ export const HomeScreen = (props: HomeProps) => {
             display: "flex",
           }}
         >
-          <Button
+          <Heading color={"white"} textAlign={"center"}>
+            Please, press this button:
+          </Heading>
+          <Pressable
             style={{
               borderRadius: 1000,
-              borderWidth: 1,
-              backgroundColor: "#E8DDB5",
-              borderColor: "white",
-              shadowColor: "black",
-              shadowOpacity: 0.8,
               alignSelf: "center",
             }}
+            onPressIn={() => setOpacity(true)}
+            onPressOut={() => setOpacity(false)}
             onPress={() => setShowPerfil(true)}
-            shadow={5}
           >
-            <Text color={"cyan.500"}>Click me</Text>
-          </Button>
+            <Image source={Circle} size={"100px"} opacity={opacity ? 0.5 : 1} />
+          </Pressable>
         </View>
       ) : null}
     </View>
